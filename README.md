@@ -103,11 +103,11 @@ Se han realizado pruebas unitarias para asegurar el correcto funcionamiento de c
 
 *   **Pruebas de ResponseHelper**: Validan que las respuestas HTTP sean construidas correctamente.
 
-*   **Pruebas de HelloService**: Verifican que el endpoint /app/hello funcione como se espera.
-
 Para ejecutar las pruebas, utiliza el siguiente comando:
 
     mvn test
+
+![img.png](img.png)
 
 Contribuciones
 --------------

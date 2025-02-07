@@ -26,7 +26,7 @@
             document.getElementById("getrespmsg").innerHTML =
                 this.responseText;
         }
-        xhttp.open("GET", "app/hello?name="+nameVar);
+        xhttp.open("GET", "/hello?name="+nameVar);
         xhttp.send();
     }
 </script>
@@ -42,7 +42,7 @@
 
 <script>
     function loadPostMsg(name){
-        let url = "app/hello?name=" + name.value;
+        let url = "/hello?name=" + name.value;
 
         fetch (url, {method: 'POST'})
             .then(x => x.text())

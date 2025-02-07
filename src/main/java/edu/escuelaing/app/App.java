@@ -11,9 +11,7 @@ public class App {
         StaticFileHandler.staticfiles("./src/main/resources/static");
 
         // Definir rutas REST
-        Router.get("/hello", (req, res) -> "Hello " + req.getValues("name"));
-        //EL SERVICIO ESTATICO prueba.html no responde correctamente, deberia imprimir el JSON basado en el input que escribe el usuario
-        //Router.get("/app/hello", (req, res) -> "{\"name\":\"" + name + "\"}");
+        Router.get("/hello", (req, res) -> "{\"name\": \"" + req.getValues("name") + "\"}");
         Router.get("/pi", (req, res) -> String.valueOf(Math.PI));
 
         // Ruta para agregar un usuario usando GET
