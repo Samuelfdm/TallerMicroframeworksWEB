@@ -1,6 +1,6 @@
 # Taller Microframeworks WEB
 
-This project aims to enhance an existing web server, which currently supports HTML files, JavaScript, CSS, and images, by converting it into a fully functional web framework. This framework will enable the development of web applications with backend REST services. The new framework will provide developers with tools to define REST services using lambda functions, manage query values within requests, and specify the location of static files.
+Este proyecto pretende mejorar un servidor web existente, que actualmente soporta archivos HTML, JavaScript, CSS e imágenes, convirtiéndolo en un framework web totalmente funcional. Este marco permitirá el desarrollo de aplicaciones web con servicios REST backend. El nuevo marco proporcionará a los desarrolladores herramientas para definir servicios REST utilizando funciones lambda, gestionar valores de consulta dentro de las solicitudes y especificar la ubicación de los archivos estáticos.
 
 ## Instalación
 
@@ -8,8 +8,8 @@ Para instalar y ejecutar este proyecto, sigue los siguientes pasos:
 
 1. **Clona el repositorio:**:
    ```bash
-   git clone https://github.com/Samuelfdm/TallerWebServer.git
-   cd TallerWebServer
+   git clone https://github.com/Samuelfdm/TallerMicroframeworksWEB.git
+   cd TallerMicroframeworksWEB
 
 2. **Compila y empaqueta el proyecto:**
 Asegúrate de tener Maven instalado y ejecuta:
@@ -19,16 +19,35 @@ Asegúrate de tener Maven instalado y ejecuta:
 3. **Ejecuta el servidor:**
 Después de compililar y empaquetar el proyecto, ejecuta el servidor con:
     ```bash
-    java -cp target/classes edu.escuelaing.app.HttpServer
+    java -cp target/classes edu.escuelaing.app.App
    
     o tambien:
    
-    java -cp target/TallerWebServer-1.0-SNAPSHOT.jar edu.escuelaing.app.HttpServer
+    java -cp target/TallerMicroframeworksWEB-1.0-SNAPSHOT.jar edu.escuelaing.app.App
 
 Ejecución
 ---------
 
 Una vez que el servidor esté en funcionamiento, puedes acceder a los recursos estáticos a través de tu navegador web. Por ejemplo:
+
+Ejemplo de Uso
+--------------
+**Agregar un Usuario:**
+
+Accede a http://localhost:35000/addUser?name=Pedro&email=pedro@example.com para agregar un usuario.
+
+**Obtener la Lista de Usuarios:**
+
+Accede a http://localhost:35000/users para obtener la lista de usuarios.
+
+**Ruta REST /hello:**
+
+Accede a http://localhost:35000/hello?name=pedro para asignar a la variable name el valor de pedro
+
+**Ruta REST /pi:**
+
+Accede a http://localhost:35000/pi para mostrar el valor de PI
+
 
 *   **Página principal**: http://localhost:35000/prueba.html
 

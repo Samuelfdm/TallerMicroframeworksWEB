@@ -3,10 +3,14 @@ package edu.escuelaing.app;
 import java.io.*;
 
 public class StaticFileHandler {
-    private static final String BASE_PATH = "./src/main/resources/static";
+    private static String basePath = "./src/main/resources/static";
+
+    public static void staticfiles(String path) {
+        basePath = path;
+    }
 
     public static void serve(String resourcePath, OutputStream out, PrintWriter writer) {
-        File file = new File(BASE_PATH + resourcePath);
+        File file = new File(basePath + resourcePath);
         if (file.exists() && file.isFile()) {
             try (FileInputStream fis = new FileInputStream(file)) {
                 String contentType = ResponseHelper.getContentType(file.getName());

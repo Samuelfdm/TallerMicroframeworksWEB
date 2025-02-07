@@ -19,13 +19,24 @@ public class RequestHandler {
             if (requestLine == null) return;
 
             System.out.println("Received: " + requestLine);
-            String resourcePath = requestLine.split(" ")[1];
+            String[] requestParts = requestLine.split(" ");
+            String method = requestParts[0];
+            String path = requestParts[1];
 
-            if (resourcePath.startsWith("/app/hello")) {
-                String response = HelloService.process(resourcePath);
+            Request req = new Request();
+            Response res = new Response();
+
+            if (path.contains("?")) {
+                String[] pathAndQuery = path.split("\\?");
+                path = pathAndQuery[0];
+                req.setQueryParams(pathAndQuery[1]);
+            }
+
+            String response = Router.handleRequest(path, req, res);
+            if (response != null) {
                 ResponseHelper.sendJsonResponse(writer, response);
             } else {
-                StaticFileHandler.serve(resourcePath, out, writer);
+                StaticFileHandler.serve(path, out, writer);
             }
         } catch (IOException e) {
             System.err.println("Error procesando la solicitud: " + e.getMessage());
